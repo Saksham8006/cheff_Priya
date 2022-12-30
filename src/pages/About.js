@@ -1,7 +1,7 @@
-import React, {useContext} from 'react';
+import React from 'react';
 
 // Import Images
-import WomanImg from '../img/about/woman.png';
+import ChefImg from '../img/about/Chefabout.jpeg';
 
 // Import Link
 import { Link } from 'react-router-dom';
@@ -12,12 +12,11 @@ import { motion } from 'framer-motion';
 //Import Transition
 import { transition1 } from '../transitions';
 
-import { CursorContext } from '../context/CursorContext';
 
 
 
 const About = () => {
-const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext)
+
   return (
     <motion.section 
     initial={{ opacity: 0, y: '100%' }}
@@ -26,14 +25,13 @@ const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext)
     transition={transition1}
     className='section'>
       <div 
-      onMouseEnter={mouseEnterHandler}
-      onMouseLeave={mouseLeaveHandler} 
-      className='container mx-auto h-full relative'>
+    
+      className='container mx-auto h-full relative pt-36'>
         {/* text & img wrapper */}
         <div className='flex flex-col lg:flex-row h-full items-center justify-center gap-x-24 text-center lg:text-left lg:pt-16'>
           {/* image */}
-          <div className='flex-1 max-h-96 lg:max-h-max order-2 lg:order-none overflow-hidden'>
-            <img src={WomanImg} alt='' />
+          <div className='flex-1 max-h-96 lg:max-h-max order-1 lg:order-none '>
+            <img src={ChefImg} alt='' />
           </div>
           {/* text */}
           <motion.div 
@@ -49,8 +47,8 @@ const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext)
             editing...doing everything). </b>
               <br />
               <br />
-              Natale quickly replied, “Check your email.” Turned out he’d 
-              been designing a site for his upcoming documentary
+              As chefs we know how to work hard, hustle and get stuff done. That why we enjoy the rush of service.
+               The chaos of perfection, the symphony of pots & pans!
             </p>
             <Link to={'/portfolio'} className='btn'>
               View my work

@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
 
 // Import Images
-import Image1 from '../img/portfolio/1.png';
-import Image2 from '../img/portfolio/2.png';
-import Image3 from '../img/portfolio/3.png';
-import Image4 from '../img/portfolio/4.png';
+import Image1 from '../img/portfolio/1.jpg';
+import Image2 from '../img/portfolio/2.jpg';
+import Image3 from '../img/portfolio/3.jpg';
+import Image4 from '../img/portfolio/4.jpg';
 
 // Import Link
 import { Link } from 'react-router-dom';

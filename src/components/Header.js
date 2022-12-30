@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useState } from 'react';
 
 //Import Components
 import Socials from './Socials';
@@ -8,32 +8,48 @@ import MobileNav from './MobileNav';
 //Import Link
 import { Link } from 'react-router-dom';
 
-//Import Circle Context
-import { CursorContext } from '../context/CursorContext';
+
+
+
+
 
 
 const Header = () => {
-  const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext)
+  const [color, setColor] = useState(false);
+const changeColor = () =>{
+  if(window.scrollY >= 80){
+    setColor(true)
+  }else{
+    setColor(false)
+  }
+}
+
+window.addEventListener('scroll', changeColor)
+
+
+
+ 
   return (
-  <header className='fixed w-full px-[30px] lg:px-[100px] z-30 h-[100px] lg:h-[140px] flex items-center'>
+  <header className={color ? 'header header-bg' : 'header'} >
+    <div className='header'>
     <div className='flex flex-col lg:flex-row lg:items-center w-full justify-between uppercase'>
       {/* Logo Section */}
       <Link 
-      onMouseEnter={mouseEnterHandler}
-      onMouseLeave={mouseLeaveHandler}
+     
       to={'/'} className='max-w-[200px]'>
         <img src={Logo} alt='' />
       </Link>
 
       {/* Nav - Intially hidden - show on desktop mode */}
       <nav 
-      onMouseEnter={mouseEnterHandler}
-      onMouseLeave={mouseLeaveHandler}
-      className='hidden xl:flex gap-x-12 font-semibold'>
-        <Link to={'/'} className='text-[#696c6d] hover:text-primary transition'>Home</Link>
-        <Link to={'/about'} className='text-[#696c6d] hover:text-primary transition'>About</Link>
-        <Link to={'/portfolio'} className='text-[#696c6d] hover:text-primary transition'>Portfolio</Link>
-        <Link to={'/contact'} className='text-[#696c6d] hover:text-primary transition'>Contact</Link>
+      
+      className='hidden xl:flex gap-x-12 font-bold'>
+        <Link to={'/'} className='text-[#696c6d] hover:text-primary transition text-xl'>Home</Link>
+        <Link to={'/about'} className='text-[#696c6d] hover:text-primary transition text-xl'>About Us</Link>
+        <Link to={'/portfolio'} className='text-[#696c6d] hover:text-primary transition text-xl'>Portfolio</Link>
+        <Link to={'/services'} className='text-[#696c6d] hover:text-primary transition text-xl'>Services</Link>
+        <Link to={'/contact'} className='text-[#696c6d] hover:text-primary transition text-xl'>Contact</Link>
+       
       </nav>
     </div>
     {/* Socials */}
@@ -41,6 +57,7 @@ const Header = () => {
 
     {/* MobileNav */}
     <MobileNav />
+    </div>
   </header>
   );
 };
